@@ -29,20 +29,19 @@
       <i class="icon ion-compose"></i>
     </button>
   </ion-header-bar>
-  <ion-content scroll="false">
-    <ion-list show-delete="shouldShowDelete">
+  <ion-content>
+    <ion-list show-delete="false" can-swipe="true">
       <ion-item ng-repeat="task in activeProject.tasks">
           {{task.title}}
-          <ion-delete-button class="ion-minus-circled" >      
-          </ion-delete-button>
+          <ion-option-button ng-click="deleteEvent()" class="button-assertive icon ion-trash-a"></ion-option-button>
+          
       </ion-item>
+    
     </ion-list>
-      <ion-toggle ng-model="shouldShowDelete">
-          Push to delete Tasks
-      </ion-toggle>
   </ion-content>
 </ion-side-menu-content>
       
+
        
   <!-- Left menu -->
   <ion-side-menu side="left">
@@ -52,9 +51,10 @@
       </button>
     </ion-header-bar>
     <ion-content scroll="false">
-      <ion-list>
+      <ion-list show-delete="false" can-swipe="true">
         <ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
           {{project.title}}
+            <ion-option-button ng-click="deleteEvent()" class="button-assertive icon ion-trash-a"></ion-option-button>
         </ion-item>
       </ion-list>
     </ion-content>

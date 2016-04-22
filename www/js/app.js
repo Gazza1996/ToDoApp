@@ -1,4 +1,4 @@
-
+// Factory and controller
 angular.module('todo', ['ionic'])
 
 .factory('Projects', function() {
@@ -10,6 +10,7 @@ angular.module('todo', ['ionic'])
       }
       return [];
     },
+      
     save: function(projects) {
       window.localStorage['projects'] = angular.toJson(projects);
     },
@@ -37,9 +38,15 @@ angular.module('todo', ['ionic'])
     var newProject = Projects.newProject(projectTitle);
     $scope.projects.push(newProject);
     Projects.save($scope.projects);
+    $scope.shouldShowDelete = false;
     $scope.selectProject(newProject, $scope.projects.length-1);
   }
   
+    $scope.deleteEvent = function(){
+        alert("Delete item");
+    };
+    
+   
 
 
 
@@ -89,6 +96,7 @@ angular.module('todo', ['ionic'])
   $scope.newTask = function() {
     $scope.taskModal.show();
   };
+    
 
   $scope.closeNewTask = function() {
     $scope.taskModal.hide();
