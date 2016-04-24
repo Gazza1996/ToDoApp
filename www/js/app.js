@@ -1,4 +1,11 @@
+// Gary Mannion
+// G00319609
 // Factory and controller
+// samples of code used from ionic framework website to help with storage
+// creating a new task
+// modal task bar
+// creating a new list
+// ionic framework.com
 angular.module('todo', ['ionic'])
 
     .factory('Projects', function () {
@@ -42,7 +49,7 @@ angular.module('todo', ['ionic'])
 
             $scope.selectProject(newProject, $scope.projects.length - 1);
         };
-  
+        // delete button function || NOT WORKING ||
         $scope.delete = function (index, tasks) {
             tasks.splice(index, 1);
         };
@@ -117,7 +124,7 @@ angular.module('todo', ['ionic'])
         };
 
 
-  // to create the first list prompting for a title using the $timeout function
+        // to create the first list prompting for a title using the $timeout function
         $timeout(function () {
             if ($scope.projects.length === 0) {
                 while (true) {
@@ -130,4 +137,4 @@ angular.module('todo', ['ionic'])
             }
         });
 
-});// end of file
+    }); // end of file
