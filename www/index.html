@@ -37,7 +37,7 @@
     <ion-list show-delete="false" can-swipe="true"><!-- creates slider on tasks -->
       <ion-item ng-repeat="task in activeProject.tasks">
           {{task.title}}
-          <ion-option-button ng-click="deleteEvent()" class="button-assertive icon ion-trash-a"></ion-option-button><!-- Delete button -->
+          <ion-option-button ng-click="delete({{index}})" class="button-assertive icon ion-trash-a"></ion-option-button><!-- Delete button -->
       </ion-item>
     
     </ion-list>
@@ -52,19 +52,37 @@
       </button>
     </ion-header-bar>
     <ion-content scroll="false">
-      <ion-list show-delete="false" can-swipe="true">
+      <ion-list>
         <ion-item ng-repeat="project in projects" ng-click="selectProject(project, $index)" ng-class="{active: activeProject == project}">
           {{project.title}}
-            <ion-option-button ng-click="deleteList()" class="button-assertive icon ion-trash-a"></ion-option-button>
         </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
       <script id="new-task.html" type="text/ng-template">
-          
-          
       
   <div class="modal">
+      
+      <!-- modal bar for adding a new title 
+      <ion-header-bar class="bar-balanced">
+          <h1 class="title>New List"</h1>
+      <button class="button button-clear button-assertive" ng-click="closeNewList()">Cancel</button>
+      </ion-header-bar>-->
+      
+      <!-- modal content area 
+      <ion-content>
+      <form ng-submit="createList(list)">
+        <div class="list">
+          <label class="list list-input">
+            <input type="text" placeholder="Add List" ng-model="list.title">
+            </label>
+          </div>  
+          <div class="padding">
+          <button type="submit" class="button button-block button-royal">Create List</button>
+          </div>
+          </form>
+      
+      </ion-content>-->
 
     <!-- Modal header bar that pop ups when wanting to create a new task -->
     <ion-header-bar class="bar-balanced">
