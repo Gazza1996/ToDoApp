@@ -6,6 +6,15 @@
 // modal task bar
 // creating a new list
 // ionic framework.com
+
+// links to websites/tutorials:
+// http://ionicframework.com/docs/api/directive/ionNavView/
+// http://stackoverflow.com/questions/32214519/how-to-add-remove-item-to-from-list-in-ionic
+// http://ionicframework.com/docs/api/directive/ionList/
+// http://ionicframework.com/docs/api/service/$ionicListDelegate/
+// http://ionicframework.com/docs/api/directive/ionSideMenus/
+// http://ionicframework.com/docs/api/service/$ionicPopup/
+// 
 angular.module('todo', ['ionic'])
 
     .factory('Projects', function () {
@@ -50,9 +59,11 @@ angular.module('todo', ['ionic'])
             $scope.selectProject(newProject, $scope.projects.length - 1);
         };
         // delete button function || NOT WORKING ||
-        $scope.delete = function (index, tasks) {
-            tasks.splice(index, 1);
+        $scope.delete = function (index) {
+            $scope.tasks.splice(index, 1);
         };
+    
+ 
    
         // to load or start a list
         $scope.projects = Projects.all();
